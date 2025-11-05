@@ -17,7 +17,7 @@
         "src/dex_blog_frontend/out"
       ],
       "type": "assets",
-      "main": "src/dex_blog_frontend/out/index.html"
+      "main": "index.html"
     }
   },
   "defaults": {
