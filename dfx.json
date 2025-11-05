@@ -1,9 +1,23 @@
 {
   "canisters": {
     "dex_blog_backend": {
+      "type": "custom",
+      "build": [
+        "cargo build --target wasm32-unknown-unknown --package dex_blog_backend --release",
+        "ic-wasm target/wasm32-unknown-unknown/release/dex_blog_backend.wasm -o target/wasm32-unknown-unknown/release/dex_blog_backend.wasm shrink"
+      ],
       "candid": "src/dex_blog_backend/dex_blog_backend.did",
-      "package": "dex_blog_backend",
-      "type": "rust"
+      "wasm": "target/wasm32-unknown-unknown/release/dex_blog_backend.wasm"
+    },
+    "dex_blog_frontend": {
+      "dependencies": [
+        "dex_blog_backend"
+      ],
+      "source": [
+        "src/dex_blog_frontend/out"
+      ],
+      "type": "assets",
+      "main": "src/dex_blog_frontend/out/index.html"
     }
   },
   "defaults": {
